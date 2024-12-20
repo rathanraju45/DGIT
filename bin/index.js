@@ -4,6 +4,10 @@ import chalk from 'chalk';
 import { Command } from 'commander';
 const program = new Command();
 
+// import commadns
+
+import { initRepository } from '../lib/commands/init.js';
+
 program
   .name('dgit')
   .description('Decentralized version control system CLI')
@@ -13,8 +17,7 @@ program
   .command('init')
   .description('Initialize a new dgit repository')
   .action(() => {
-    console.log(chalk.green('Initializing a new dgit repository...'));
-    // Add logic for repository initialization
+    initRepository();
   });
 
 program
