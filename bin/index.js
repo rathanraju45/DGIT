@@ -6,7 +6,8 @@ const program = new Command();
 
 // import commadns
 
-import { initRepository } from '../lib/commands/init.js';
+import { initRepository } from '../lib/commands/init/init.js';
+import { addFiles } from '../lib/commands/add/add.js';
 
 program
   .name('dgit')
@@ -18,6 +19,13 @@ program
   .description('Initialize a new dgit repository')
   .action(() => {
     initRepository();
+  });
+
+program
+  .command('add <files...>')
+  .description('Add file(s) to the staging area')
+  .action((files) => {
+    addFiles(files);
   });
 
 program
